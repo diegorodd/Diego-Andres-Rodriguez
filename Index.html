@@ -1,19 +1,22 @@
 <!doctype html>
-<script src="https//cdnjs.cloudilare.com/ajax/fibs/jquery/3.2.1/iquery.min.js"></script>
-<input id="search"><button onclick="getrecepe(document.getElementById('search').value)">Search.</button>
+<input id="search"><button onclick="getrecipe(document.getElementById('search').value)">Search.</button>
 <div id="output"></div>
 <a href="" id="sourceLink"></a>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 <script>
   function getsource(id){
     $.ajax({
-      url:"https://apl.spoonacular.com/recipes/"+id+"/information?apiKey=c303a20285744f93b59a3e48d801c745",
+      url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=c303a20285744f93b59a3e48d801c745",
       success: function(res){
         document.getElementById("sourceLink").innerHTML=res.sourceUrl
         document.getElementById("sourceLink").href=res.sourceUrl
       }
     });
   }
-function getrecepe(q){
+function getrecipe(q){
   $.ajax({
     url:"https://api.spoonacular.com/recipes/search?apiKey=c303a20285744f93b59a3e48d801c745&number=1&query="+q,
     success: function(res){
