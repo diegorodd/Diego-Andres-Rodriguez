@@ -1,4 +1,4 @@
-<script>
+
   function getsource(id){
     $.ajax({
       url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=c303a20285744f93b59a3e48d801c745",
@@ -17,4 +17,5 @@ function getrecipe(q){
     }
   })
 }
-</script>
+
+

@@ -16,16 +16,29 @@
       }
     });
   }
- 
-  function getrecipe(q){
+function getrecipe(q){
   $.ajax({
-    url:"https://api.spoonacular.com/recipes/search?apiKey=f0d97127e9c84932ad19b3b3239929af&number=5",
+    url:"https://api.spoonacular.com/recipes/search?apiKey=c303a20285744f93b59a3e48d801c745&number=5",
     success: function(res){
-        for (let i = 0; i < 5; i++)
-    document.getElementById("output").apprend(
-        $("<div>").innerHTML=innerHTML="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"'width='100'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
-    .getsource(res.results[i].id)
-    )
-   }
+        for (let i = 0; i <5; i++){
+     document.getElementById("output").append()
+    $("<div>").innerHTML="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"'width='400'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
+    getsource(res.results[i].id)
+    }
+}
+  })
   }
+
+
+
 </script>
+
+<!-- // function(res){
+    for (let i = 0; i < 5; i++){
+    document.getElementById("output").append(
+    $("<div>").innerHTML=.innerHTML="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"'width='400'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
+        getsource(res.results[i].id)
+     )
+}
+ }
+     -->
