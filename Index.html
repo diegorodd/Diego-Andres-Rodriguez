@@ -9,7 +9,7 @@
 <script>
   function getsource(id){
     $.ajax({
-      url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=c303a20285744f93b59a3e48d801c745",
+      url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=f0d97127e9c84932ad19b3b3239929af",
       success: function(res){
         document.getElementById("sourceLink").innerHTML=res.sourceUrl
         document.getElementById("sourceLink").href=res.sourceUrl
@@ -18,17 +18,26 @@
   }
 function getrecipe(q){
   $.ajax({
-    url:"https://api.spoonacular.com/recipes/search?apiKey=c303a20285744f93b59a3e48d801c745&number=5",
+    url:"https://api.spoonacular.com/recipes/search?apiKey=f0d97127e9c84932ad19b3b3239929af&number=5",
     success: function(res){
         for (let i = 0; i <5; i++){
      document.getElementById("output").append()
-    $("<div>").innerHTML="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"'width='400'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
+    $("<div>").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"'width='400'/><br> ready in "+res.results[0].readyInMinutes+" minutes"
     getsource(res.results[i].id)
+
+    document.getElementById("output").append()
+    $("<div>").innerHTML="<h1>"+res.results[1].title+"</h1><br><img src='"+res.baseUri+res.results[1].image+"'width='400'/><br> ready in "+res.results[1].readyInMinutes+" minutes"
+    getsource(res.results[1].id)
+
+    document.getElementById("output").append()
+    $("<div>").innerHTML="<h1>"+res.results[2].title+"</h1><br><img src='"+res.baseUri+res.results[2].image+"'width='400'/><br> ready in "+res.results[i].readyInMinutes+" minutes"
+    getsource(res.results[2].id)
     }
 }
   })
   }
   
+
 
 
 </script>
